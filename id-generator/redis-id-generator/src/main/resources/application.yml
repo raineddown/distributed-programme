@@ -1,0 +1,32 @@
+server:
+  port: 8001
+
+spring:
+  jackson:
+    time-zone: Asia/Shanghai
+    serialization:
+      # Date返回前端转时间戳 但不能解决LocalDateTime转时间戳（JacksonCustomizerConfig类解决）
+      write-dates-as-timestamps: true
+
+  data:
+    redis:
+      repositories:
+        enabled: false
+  aop:
+    proxy-target-class: true
+
+  redis:
+    #数据库索引
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    #连接超时时间（ms）
+    timeout: 5000
+    jedis:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: -1
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+
